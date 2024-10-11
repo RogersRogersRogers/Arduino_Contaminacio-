@@ -1,5 +1,11 @@
 // -*- mode: c++ -*-
 
+/**
+ * @file LED.h
+ * @brief Controlador para manejar LEDs.
+ * @anchor Rogers Ernesto Sobrado Meneses
+ */
+
 #ifndef LED_H_INCLUIDO
 #define LED_H_INCLUIDO
 
@@ -10,12 +16,20 @@
 
 // ----------------------------------------------------------
 // ----------------------------------------------------------
+/**
+ * @function esperar
+ * @brief Espera un tiempo en milisegundos.
+ */
 void esperar (long tiempo) {
   delay (tiempo);
 }
 
 // ----------------------------------------------------------
 // ----------------------------------------------------------
+/**
+ * @class LED
+ * @brief Clase para manejar LEDs.
+ */
 class LED {
 private:
   int numeroLED;
@@ -24,6 +38,10 @@ public:
 
   // .........................................................
   // .........................................................
+  /**
+   * @brief Constructor de la clase LED.
+   * @param numero Número del pin del LED.
+   */
   LED (int numero)
 	: numeroLED (numero), encendido(false)
   {
@@ -33,6 +51,10 @@ public:
 
   // .........................................................
   // .........................................................
+  /**
+   * @function encender
+   * @brief Enciende el LED.
+   */
   void encender () {
 	digitalWrite(numeroLED, HIGH); 
 	encendido = true;
@@ -40,6 +62,10 @@ public:
 
   // .........................................................
   // .........................................................
+   /**
+   * @function apagar
+   * @brief Apaga el LED.
+   */
   void apagar () {
 	  digitalWrite(numeroLED, LOW);
 	  encendido = false;
@@ -47,6 +73,10 @@ public:
 
   // .........................................................
   // .........................................................
+  /**
+   * @function alternar
+   * @brief Alterna el estado del LED.
+   */
   void alternar () {
 	if (encendido) {
 	  apagar();
@@ -57,6 +87,11 @@ public:
 
   // .........................................................
   // .........................................................
+  /**
+   * @function brillar
+   * @brief Enciende el LED durante un tiempo dado.
+   * @param tiempo Tiempo en milisegundos.
+   */
   void brillar (long tiempo) {
 	encender ();
 	esperar(tiempo); 
